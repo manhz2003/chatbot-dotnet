@@ -1,0 +1,81 @@
+﻿<div class="chat-container">
+    <div class="message-container">
+        @if (ViewBag.Messages != null)
+        {
+            foreach (var message in ViewBag.Messages)
+            {
+                if (message.StartsWith("User:"))
+                {
+                    <div class="message user-message">@message</div>
+                }
+                else
+                {
+                    <div class="message bot-message">@message</div>
+                }
+            }
+        }
+        <div id="typingIndicator" class="typing-indicator" style="display: none;">...</div>
+    </div>
+    <div class="input-container">
+        <input type="text" id="message" name="message" placeholder="Type your message here..." />
+        <div>
+            <button id="sendMessageBtn"><i class="fa-regular fa-paper-plane" style="color: white;"></i></button>
+
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            function sendMessage() {
+                var message = $('#message').val();
+                if (message.trim() === '') return;
+
+                var typingElement = $('<div id="typingIndicator" class="typing-indicator">...</div>');
+                $('.message-container').append(typingElement);
+
+                $.ajax({
+                    url: '@Url.Action("SendMessage", "Home")',
+                    type: 'POST',
+                    data: { message: message },
+                    success: function (response) {
+                        typingElement.remove();
+                        $('.message-container').append(response);
+                        $('#message').val('');
+                        scrollToBottom();
+                    },
+                    error: function (xhr) {
+                        typingElement.remove();
+                        alert('An error occurred: ' + xhr.responseText);
+                    }
+                });
+
+                scrollToBottom();
+            }
+
+            $('#sendMessageBtn').click(function (e) {
+                e.preventDefault();
+                sendMessage();
+            });
+
+            $('#message').keypress(function (e) {
+                if (e.which === 13) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+
+            function scrollToBottom() {
+                $('.message-container').scrollTop($('.message-container')[0].scrollHeight);
+            }
+
+            $('.moon-custom-div').click(function () {
+                $('body').toggleClass('dark-mode');
+            });
+        });
+
+
+    </script>
+}

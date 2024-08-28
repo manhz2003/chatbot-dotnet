@@ -1,0 +1,13 @@
+@model List<string>
+
+@foreach (var message in Model)
+{
+    if (message.StartsWith("User:"))
+    {
+        <div class="message user-message">@message</div>
+    }
+    else
+    {
+        <div class="message bot-message">@message</div>
+    }
+}

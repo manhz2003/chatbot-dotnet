@@ -1,0 +1,110 @@
+/* Các quy tắc cơ bản */
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  height: 100vh;  
+  background-color: #ffff;
+
+}
+
+.nav-u {
+  color: #000000;
+  text-decoration: none;
+}
+
+nav {
+  background-color: #ffff;
+
+}
+
+.moon-custom-div {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.moon-custom {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+/* Chế độ tối */
+.dark-mode {
+  background-color: #191b21; /* Nền chính của body trong chế độ tối */
+  color: #e0e0e0; /* Màu chữ chính */
+}
+
+.dark-mode header {
+  background-color: #191b21; /* Nền của khu vực tin nhắn */
+}
+
+.dark-mode .message-container {
+  background-color: #000000; /* Nền của khu vực tin nhắn */
+}
+
+.dark-mode nav {
+  background-color: #191b21; /* Nền của khu vực tin nhắn */
+  color: #ffff;
+  border-bottom: 1px solid #2d3037 !important;
+}
+
+.dark-mode .navbar-brand {
+  color: #ffff;
+}
+
+.dark-mode .nav-u {
+  color: #ffff;
+}
+
+.dark-mode .message {
+  background-color: #000000;
+  color: #e0e0e0; 
+}
+
+.dark-mode .user-message {
+  background-color: #2f2f2f; /* Màu tin nhắn của người dùng */
+  color: #ffffff;
+}
+
+.dark-mode .bot-message {
+  background-color: #000000; /* Màu tin nhắn của chatbot */
+  color: #e0e0e0;
+}
+
+.dark-mode .input-container {
+  background-color: #000000; /* Nền của khu vực nhập liệu */
+}
+
+.dark-mode .input-container input {
+  background-color: #000000; /* Nền của ô nhập liệu */
+  color: #e0e0e0; /* Màu chữ trong ô nhập liệu */
+}
+
+.dark-mode .input-container button {
+  background-color: #000000; /* Nền của nút gửi */
+  color: #e0e0e0; /* Màu chữ của nút gửi */
+}
+
+.dark-mode .typing-indicator {
+  color: #e0e0e0; /* Màu chữ của chỉ báo gõ */
+}
+
+.dark-mode .chat-container {
+  background-color: #23272f; /* Nền của khu vực chat */
+}
